@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context="com.zbd.lifemanager.MainActivity">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="4dp"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <at.markushi.ui.ActionView
+                    android:id="@+id/actionView"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+
+                    android:layout_gravity="center_vertical|left" />
+
+            </LinearLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/id_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="#ffff0000"
+                android:dividerHeight="10dp" />
+
+            
+
+            <LinearLayout
+                android:id="@+id/left"
+                android:layout_width="60dp"
+                android:layout_height="500dp"
+                android:layout_gravity="left|center_vertical"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="500dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:background="@drawable/shape"
+                    android:orientation="vertical">
+                    <Button
+                        android:id="@+id/aa"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/c1" />
+
+                    <Button
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/e2" />
+
+                    <Button
+                        android:id="@+id/aa1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/e1" />
+
+                    <Button
+                        android:id="@+id/aa2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/e1" />
+
+                    <Button
+                        android:id="@+id/aa3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/e1" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </android.support.v4.widget.DrawerLayout>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</LinearLayout>
