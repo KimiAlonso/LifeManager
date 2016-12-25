@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.Space;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -48,7 +47,7 @@ public class Fm04 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         onRefresh();
 
 
-        swipe = (SwipeRefreshLayout) view.findViewById(R.id.NBASwip);
+        swipe = (SwipeRefreshLayout) view.findViewById(R.id.Swip);
         swipe.setOnRefreshListener(this);
 
         nbaAdapter = new NBAAdapter();

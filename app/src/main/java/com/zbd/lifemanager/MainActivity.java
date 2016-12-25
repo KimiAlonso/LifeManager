@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.melnykov.fab.FloatingActionButton;
+import com.zbd.lifemanager.Fragment.Fm03;
 import com.zbd.lifemanager.Fragment.Fm04;
 import com.zbd.lifemanager.Fragment.FragmentDemo;
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentDemo fm_1;
     FragmentDemo fm_2;
-    FragmentDemo fm_3;
+    Fm03 fm_3;
     Fm04 fm_4;
     FragmentDemo fm_5;
 
@@ -70,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         dButton3 = (RadioButton) findViewById(R.id.main_bt_3);
         dButton4 = (RadioButton) findViewById(R.id.main_bt_4);
         dButton5 = (RadioButton) findViewById(R.id.main_bt_5);
-
 
 
 //        mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
@@ -172,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
                         actionView.setAction(new BackAction(), ActionView.ROTATE_COUNTER_CLOCKWISE);
                         mDrawer.openDrawer(Gravity.LEFT);
                         drawerState = 1;
+                        break;
                 }
 
             }
@@ -186,53 +187,53 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void SelectFragment(int a){
+    private void SelectFragment(int a) {
 
         android.support.v4.app.FragmentTransaction tran = this.getSupportFragmentManager().beginTransaction();
 
-        if(fm_1 != null){
+        if (fm_1 != null) {
             tran.hide(fm_1);
         }
-        if(fm_2 != null){
+        if (fm_2 != null) {
             tran.hide(fm_2);
         }
-        if(fm_3 != null){
+        if (fm_3 != null) {
             tran.hide(fm_3);
         }
-        if(fm_4 != null){
+        if (fm_4 != null) {
             tran.hide(fm_4);
         }
-        if(fm_5 != null){
+        if (fm_5 != null) {
             tran.hide(fm_5);
         }
 
-        if(a == 1) {
+        if (a == 1) {
             if (fm_1 == null) {
                 fm_1 = new FragmentDemo();
                 tran.add(R.id.main_fm, fm_1);
             } else tran.show(fm_1);
         }
-        if(a == 2) {
+        if (a == 2) {
 
             if (fm_2 == null) {
                 fm_2 = new FragmentDemo();
                 tran.add(R.id.main_fm, fm_2);
             } else tran.show(fm_2);
         }
-        if(a == 3) {
+        if (a == 3) {
             if (fm_3 == null) {
-                fm_3 = new FragmentDemo();
+                fm_3 = new Fm03();
                 tran.add(R.id.main_fm, fm_3);
             } else tran.show(fm_3);
         }
-        if(a == 4){
-            if (fm_4 == null){
+        if (a == 4) {
+            if (fm_4 == null) {
                 fm_4 = new Fm04();
                 tran.add(R.id.main_fm, fm_4);
             } else tran.show(fm_4);
         }
-        if(a == 5){
-            if (fm_5 == null){
+        if (a == 5) {
+            if (fm_5 == null) {
                 fm_5 = new FragmentDemo();
                 tran.add(R.id.main_fm, fm_5);
             } else tran.show(fm_5);

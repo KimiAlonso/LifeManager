@@ -33,4 +33,5 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
     compile 'com.github.markushi:android-ui:1.2'
     compile files('libs/volley.jar')
+    compile 'com.google.code.gson:gson:2.8.0'
 }
