@@ -34,4 +34,5 @@ dependencies {
     compile 'com.github.markushi:android-ui:1.2'
     compile files('libs/volley.jar')
     compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }

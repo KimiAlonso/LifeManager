@@ -1,8 +1,10 @@
-package com.zbd.lifemanager.Fragment;
+package com.zbd.lifemanager.Fragment.Fm03;
 
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,8 +31,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.security.auth.login.LoginException;
-
 public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     SwipeRefreshLayout srl;
@@ -37,6 +38,8 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
     String url = "http://op.juhe.cn/onebox/basketball/nba?key=645b5a36905d5e6f2da6d7a10cbb564c";
     String TAG = "Fm03";
     List<Map<String,Object>> mDataList = new ArrayList<>();
+    ListView lv;
+    MHandler mHandler;
 
     @Nullable
     @Override
@@ -44,9 +47,13 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         View view = inflater.inflate(R.layout.fm03,null);
         context = ((MainActivity) getActivity()).getContext();
 
+        mHandler = new MHandler();
+
 
         srl = (SwipeRefreshLayout) view.findViewById(R.id.NBASwip);
         srl.setOnRefreshListener(this);
+        lv = (ListView) view.findViewById(R.id.NBAList);
+        onRefresh();
 
 
 
@@ -76,27 +83,15 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
                             Map<String,Object> map = new HashMap<String, Object>();
                             map.put("player1",player1);
                             map.put("player2",player2);
-                            map.put("plauer1logo",player1Logo);
+                            map.put("player1logo",player1Logo);
                             map.put("player2logo",player2Logo);
                             map.put("score",score);
                             mDataList.add(map);
-
-
-
+                            mHandler.sendEmptyMessage(0);
                         }
 
 
                         srl.setRefreshing(false);
-
-
-
-
-
-
-
-
-
-
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -106,17 +101,16 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
                 });
                 mRequestQueue.add(request);
                 mRequestQueue.start();
-
-
-
-
-
-
-
-
             }
         };
-
         update.run();
+    }
+
+    public class MHandler extends Handler{
+        @Override
+        public void handleMessage(Message msg) {
+            Fm03_Adapter adapter = new Fm03_Adapter(context,mDataList);
+            lv.setAdapter(adapter);
+        }
     }
 }

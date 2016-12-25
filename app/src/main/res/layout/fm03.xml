@@ -13,17 +13,13 @@
         android:layout_height="match_parent"
         android:id="@+id/NBASwip">
         <ListView
-            android:id="@android:id/list"
+            android:id="@+id/NBAList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/background_dim_overlay"
             android:dividerHeight="8dp"
             >
-
         </ListView>
-
-
-
     </android.support.v4.widget.SwipeRefreshLayout>
 
 
