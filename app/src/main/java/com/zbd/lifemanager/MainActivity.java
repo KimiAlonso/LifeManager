@@ -1,23 +1,21 @@
 package com.zbd.lifemanager;
 
+import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.melnykov.fab.FloatingActionButton;
+import com.zbd.lifemanager.Fragment.Fm04;
 import com.zbd.lifemanager.Fragment.FragmentDemo;
 
 import java.util.ArrayList;
@@ -42,10 +40,13 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton dButton5;
     RadioGroup radioGroup;
 
+
+    Context context;
+
     FragmentDemo fm_1;
     FragmentDemo fm_2;
     FragmentDemo fm_3;
-    FragmentDemo fm_4;
+    Fm04 fm_4;
     FragmentDemo fm_5;
 
     @Override
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setColorNormal(Color.parseColor("#FF4081"));
+
 
         initData();
         initDrawer();
@@ -113,6 +115,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public Context getContext() {
+        context = this.getApplicationContext();
+        return context;
     }
 
 
@@ -220,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if(a == 4){
             if (fm_4 == null){
-                fm_4 = new FragmentDemo();
+                fm_4 = new Fm04();
                 tran.add(R.id.main_fm, fm_4);
             } else tran.show(fm_4);
         }

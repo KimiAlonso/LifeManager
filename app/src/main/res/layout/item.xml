@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#EEE8CD"
     android:layout_height="300dp">
+
     <android.support.v7.widget.CardView
         android:layout_width="340dp"
         android:layout_height="285dp"
@@ -19,6 +19,7 @@
             android:layout_height="285dp"
             android:gravity="center"
             android:text="1"
+            android:textColor="#000000"
             android:background="#ffffff"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />

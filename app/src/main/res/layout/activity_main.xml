@@ -28,7 +28,6 @@
                     android:id="@+id/actionView"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-
                     android:layout_gravity="center_vertical|left" />
 
             </LinearLayout>
@@ -40,9 +39,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
 
                 <FrameLayout
                     android:id="@+id/main_fm"
@@ -67,7 +68,7 @@
                     android:layout_marginTop="500dp"
                     android:background="#FF4081" />-->
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
             <LinearLayout
