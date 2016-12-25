@@ -13,7 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.melnykov.fab.FloatingActionButton;
+import com.zbd.lifemanager.Fragment.FragmentDemo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +34,19 @@ public class MainActivity extends AppCompatActivity {
     private HomeAdapter mAdapter;
     int drawerState = 2;
     DrawerLayout mDrawer;
+    FloatingActionButton fab;
+    private RadioButton dButton1;
+    private RadioButton dButton2;
+    private RadioButton dButton3;
+    private RadioButton dButton4;
+    private RadioButton dButton5;
+    RadioGroup radioGroup;
 
+    FragmentDemo fm_1;
+    FragmentDemo fm_2;
+    FragmentDemo fm_3;
+    FragmentDemo fm_4;
+    FragmentDemo fm_5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +54,72 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer);
 
+//        fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setColorNormal(Color.parseColor("#FF4081"));
+
         initData();
+        initDrawer();
+
+        radioGroup = (RadioGroup) findViewById(R.id.radiogroup);
+        SelectFragment(1);
+
+        dButton1 = (RadioButton) findViewById(R.id.main_bt_1);
+        dButton2 = (RadioButton) findViewById(R.id.main_bt_2);
+        dButton3 = (RadioButton) findViewById(R.id.main_bt_3);
+        dButton4 = (RadioButton) findViewById(R.id.main_bt_4);
+        dButton5 = (RadioButton) findViewById(R.id.main_bt_5);
+
+
+
+//        mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mAdapter = new HomeAdapter());
+
+
+        radioGroup.check(dButton1.getId());
+        dButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDrawer.closeDrawer(Gravity.LEFT);
+                SelectFragment(1);
+            }
+        });
+        dButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectFragment(2);
+                mDrawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+        dButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectFragment(3);
+                mDrawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+        dButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectFragment(4);
+                mDrawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+        dButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SelectFragment(5);
+                mDrawer.closeDrawer(Gravity.LEFT);
+            }
+        });
+
+    }
+
+
+    public void initDrawer() {
 
         final ActionView actionView = (ActionView) findViewById(R.id.actionView);
         actionView.setColor(Color.WHITE);
-
         mDrawer.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -89,15 +167,8 @@ public class MainActivity extends AppCompatActivity {
                         drawerState = 1;
                 }
 
-//
             }
         });
-
-
-        mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mAdapter = new HomeAdapter());
-
 
     }
 
@@ -106,6 +177,60 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 'A'; i < 'z'; i++) {
             mDatas.add("" + (char) i);
         }
+    }
+
+    private void SelectFragment(int a){
+
+        android.support.v4.app.FragmentTransaction tran = this.getSupportFragmentManager().beginTransaction();
+
+        if(fm_1 != null){
+            tran.hide(fm_1);
+        }
+        if(fm_2 != null){
+            tran.hide(fm_2);
+        }
+        if(fm_3 != null){
+            tran.hide(fm_3);
+        }
+        if(fm_4 != null){
+            tran.hide(fm_4);
+        }
+        if(fm_5 != null){
+            tran.hide(fm_5);
+        }
+
+        if(a == 1) {
+            if (fm_1 == null) {
+                fm_1 = new FragmentDemo();
+                tran.add(R.id.main_fm, fm_1);
+            } else tran.show(fm_1);
+        }
+        if(a == 2) {
+
+            if (fm_2 == null) {
+                fm_2 = new FragmentDemo();
+                tran.add(R.id.main_fm, fm_2);
+            } else tran.show(fm_2);
+        }
+        if(a == 3) {
+            if (fm_3 == null) {
+                fm_3 = new FragmentDemo();
+                tran.add(R.id.main_fm, fm_3);
+            } else tran.show(fm_3);
+        }
+        if(a == 4){
+            if (fm_4 == null){
+                fm_4 = new FragmentDemo();
+                tran.add(R.id.main_fm, fm_4);
+            } else tran.show(fm_4);
+        }
+        if(a == 5){
+            if (fm_5 == null){
+                fm_5 = new FragmentDemo();
+                tran.add(R.id.main_fm, fm_5);
+            } else tran.show(fm_5);
+        }
+        tran.commit();
     }
 
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
