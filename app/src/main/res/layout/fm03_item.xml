@@ -2,99 +2,90 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="500dp"
-    android:background="@color/background_dim_overlay">
+    android:layout_height="500dp">
 
-    <!--<android.support.v7.widget.CardView
+
+    <RelativeLayout
         android:layout_width="340dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:elevation="8dp"
-        android:gravity="center"
-        android:background="@color/cardview_light_background"
-        app:cardCornerRadius="10dp">-->
+        android:background="@color/cardview_light_background">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/background_dim_overlay"/>
 
-        <RelativeLayout
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_width="340dp"
-            android:layout_height="150dp"
-            android:background="@color/cardview_light_background"
-            >
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true">
-                <LinearLayout
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/player1logo"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp" />
+
+                <TextView
+                    android:id="@+id/player1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:textColor="#000000" />
+            </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/player1logo"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp" />
+            <android.support.v4.widget.Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent" />
 
-                    <TextView
-                        android:id="@+id/player1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000000"/>
-                </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
-                <android.support.v4.widget.Space
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent" />
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    >
-                    <TextView
-                        android:id="@+id/score"
-                        android:layout_centerVertical="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000000"
-                        />
-
-                </RelativeLayout>
-
-                <android.support.v4.widget.Space
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent" />
-
-
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_centerVertical="true"
+                    android:textColor="#000000" />
 
-                    <ImageView
-                        android:id="@+id/player2logo"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/player2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#000000"/>
+            <android.support.v4.widget.Space
+                android:layout_width="20dp"
+                android:layout_height="match_parent" />
 
 
-                </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/player2logo"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp" />
+
+                <TextView
+                    android:id="@+id/player2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000" />
+
 
             </LinearLayout>
 
+        </LinearLayout>
 
 
-
-        </RelativeLayout>
-
-<!--
-    </android.support.v7.widget.CardView>-->
+    </RelativeLayout>
 
 
 </RelativeLayout>

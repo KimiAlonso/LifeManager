@@ -58,6 +58,7 @@ public class Fm03_Adapter extends BaseAdapter {
         Glide.with(context).load(list.get(position).get("player1logo").toString()).into(holder.player1logo);
         Glide.with(context).load(list.get(position).get("player2logo").toString()).into(holder.player2logo);
         holder.score.setText(list.get(position).get("score").toString());
+//        notifyDataSetChanged();
 
 
 

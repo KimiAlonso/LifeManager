@@ -56,7 +56,11 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
     ImageView team04logo;
     ImageView team05logo;
     ImageView team06logo;
+    TextView time1;
+    TextView time2;
+    TextView time3;
     View mView;
+    ImageView mainTeanImg;
 
 
 
@@ -71,8 +75,7 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
 
 
 
-        mainTeam = (TextView) view.findViewById(R.id.main_team);
-        mainTeam.setText("马刺");
+
 
         mHandler = new MHandler();
 
@@ -196,16 +199,25 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         @Override
         public void handleMessage(Message msg) {
             Fm03_Adapter adapter = new Fm03_Adapter(context,mDataList);
+            adapter.notifyDataSetChanged();
             lv.setAdapter(adapter);
 
+            mainTeanImg = (ImageView) mView.findViewById(R.id.main_team_img);
             team01logo = (ImageView) mView.findViewById(R.id.player01logo) ;
             team02logo = (ImageView) mView.findViewById(R.id.player02logo) ;
             team03logo = (ImageView) mView.findViewById(R.id.player03logo) ;
             team04logo = (ImageView) mView.findViewById(R.id.player04logo) ;
             team05logo = (ImageView) mView.findViewById(R.id.player05logo) ;
             team06logo = (ImageView) mView.findViewById(R.id.player06logo) ;
+            time1 = (TextView) mView.findViewById(R.id.time1);
+            time2 = (TextView) mView.findViewById(R.id.time2);
+            time3 = (TextView) mView.findViewById(R.id.time3);
 
+            time1.setText(mTeamList.get(0).get("time").toString());
+            time2.setText(mTeamList.get(1).get("time").toString());
+            time3.setText(mTeamList.get(2).get("time").toString());
 
+            mainTeanImg.setImageResource(R.drawable.spurs);
 
             String url01 = mTeamList.get(0).get("player1logo").toString();
             Glide.with(context).load(url01).into(team01logo);
@@ -219,6 +231,7 @@ public class Fm03 extends Fragment implements SwipeRefreshLayout.OnRefreshListen
             Glide.with(context).load(url05).into(team05logo);
             String url06 = mTeamList.get(2).get("player2logo").toString();
             Glide.with(context).load(url06).into(team06logo);
+
 
 //
 //
