@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.melnykov.fab.FloatingActionButton;
 import com.zbd.lifemanager.Fragment.Fm03.Fm03;
 import com.zbd.lifemanager.Fragment.Fm04;
+import com.zbd.lifemanager.Fragment.Fm05.Fm05_1;
 import com.zbd.lifemanager.Fragment.FragmentDemo;
 
 import java.util.ArrayList;
@@ -42,19 +43,20 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
 
 
-    Context context;
+    static Context context;
 
     FragmentDemo fm_1;
     FragmentDemo fm_2;
     Fm03 fm_3;
     Fm04 fm_4;
-    FragmentDemo fm_5;
+    Fm05_1 fm_5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer);
+        context = MainActivity.this;
 
 //        fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setColorNormal(Color.parseColor("#FF4081"));
@@ -115,11 +117,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    public Context getContext() {
-        context = this.getApplicationContext();
-        return context;
     }
 
 
@@ -234,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (a == 5) {
             if (fm_5 == null) {
-                fm_5 = new FragmentDemo();
+                fm_5 = new Fm05_1();
                 tran.add(R.id.main_fm, fm_5);
             } else tran.show(fm_5);
         }
@@ -268,5 +265,10 @@ public class MainActivity extends AppCompatActivity {
                 tv = (TextView) view.findViewById(R.id.id_num);
             }
         }
+    }
+
+    public static Context getContext(){
+
+        return context;
     }
 }
